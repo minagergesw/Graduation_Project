@@ -7,7 +7,7 @@ import '../status/phone_auth_status.dart';
 
 class PhoneAuthCubit extends Cubit<PhoneAuthState> {
   late String verificationId;
-
+late String qrresult;
   PhoneAuthCubit() : super(PhoneAuthInitial());
 
   Future<void> submitPhoneNumber(String phoneNumber) async {
@@ -68,4 +68,21 @@ class PhoneAuthCubit extends Cubit<PhoneAuthState> {
     return firebaseUser;
   }
  
+////// QR //////
+void getQrResult(String qrResult){
+this.qrresult= qrResult;
+}
+var url = Uri.parse(
+      'https://homeautomation-9d333-default-rtdb.firebaseio.com/qrcode.json');
+
+Future<bool>compareQRResult ()async{
+var response=await http.get(url );
+
+if(json.decode( response.body)==qrresult){
+  return true;
+}
+return false;
+}
+
+
 }

@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "518522206050-ch9n0dikor0ljnr0tmu7t35tpbsvtcn9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.home_automation_project",
+            "certificate_hash": "1d3595a92bcde7ae71846685b0de3a2d42bf6ec0"
+          }
+        },
+        {
           "client_id": "518522206050-c5qp7tn5ugnt2re9298r6972fndrnctu.apps.googleusercontent.com",
           "client_type": 3
         }

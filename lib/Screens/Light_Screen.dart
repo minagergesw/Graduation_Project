@@ -20,11 +20,13 @@ class _LightScreenState extends State<LightScreen> {
       'https://homeautomation-9d333-default-rtdb.firebaseio.com/board1/outputs/digital.json');
 
   Future<void> _toggleLight() async {
-    await http.patch(url, body: json.encode({'27': value ? 1: 0}));
+    await http.patch(url, body: json.encode({'27': value ? 1 : 0}));
   }
- Future<void> _toggleLock() async {
-    await http.patch(url, body: json.encode({'26': value2 ? 1 : 0}));
 
+  Future<void> _toggleLock() async {
+    await http.patch(url, body: json.encode({'26': 1}));
+    await Future.delayed(const Duration(seconds: 3), () {});
+    await http.patch(url, body: json.encode({'26': 0}));
   }
 
   Widget build(BuildContext context) {
@@ -56,7 +58,7 @@ class _LightScreenState extends State<LightScreen> {
             crossAxisCount: 2,
           ),
           children: [
-           GridTile(
+            GridTile(
                 child: Column(
               children: [
                 Text(
@@ -81,12 +83,17 @@ class _LightScreenState extends State<LightScreen> {
                     child: Material(
                         color: Colors.transparent,
                         child: InkWell(
-                            onTap:
-                            () async {
+                            onTap: () async {
                               setState(() {
-                                value2 = !value2;
+                                value2 = true;
                               });
                               await _toggleLock();
+                          
+
+                              setState(() {
+                                value2 = false;
+                              });
+                              
                             },
                             child: Center(
                               child: Text(
@@ -101,8 +108,8 @@ class _LightScreenState extends State<LightScreen> {
                   ),
                 ),
               ],
-            ))
-         , GridTile(
+            )),
+            GridTile(
                 child: Column(
               children: [
                 Text(
@@ -147,7 +154,7 @@ class _LightScreenState extends State<LightScreen> {
                 ),
               ],
             )),
-             ],
+          ],
         ),
       ),
     );
