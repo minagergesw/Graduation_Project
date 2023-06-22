@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:home_automation_project/Screens/signUp.dart';
 import 'package:home_automation_project/Screens/signin.dart';
 import 'package:qr_code_dart_scan/qr_code_dart_scan.dart';
 
@@ -27,7 +28,7 @@ class _QRScanScreenState extends State<QRScanScreen> {
 
           Navigator.of(context).pop();
           if (currentResult == true) {
-            Navigator.of(context).pushNamed(SignInPage.routename);
+            Navigator.of(context).pushNamed(SignUpPage.routename);
           }
         },
         // child: Align(

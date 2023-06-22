@@ -1,8 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:home_automation_project/Screens/QR_Screen.dart';
 import 'package:home_automation_project/Screens/signUp.dart';
-import '../Screens/Light_Screen.dart';
+import 'Home_Screen.dart';
 import '../Screens/resetPassword.dart';
 
 class SignInPage extends StatefulWidget {
@@ -30,7 +31,7 @@ class _SignInPageState extends State<SignInPage> {
       // User signed in successfully
       print("User signed in with email: $email");
       Navigator.push(
-          context, MaterialPageRoute(builder: (context) => LightScreen()));
+          context, MaterialPageRoute(builder: (context) => HomeScreen()));
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         print('No user found for that email.');
@@ -150,7 +151,7 @@ class _SignInPageState extends State<SignInPage> {
                       child: TextButton(
                         onPressed: () {
                           Navigator.of(context)
-                              .pushReplacementNamed(SignUpPage.routename);
+                              .pushReplacementNamed(QRScreen.routename);
                         },
                         style: ButtonStyle(
                           elevation: MaterialStateProperty.all<double>(0),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:home_automation_project/Screens/QR_Scan_Screen.dart';
 import 'package:home_automation_project/Screens/QR_Screen.dart';
+import 'package:home_automation_project/Screens/signin.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class WelcomeScreen extends StatefulWidget {
@@ -98,7 +99,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   backgroundColor:
                       MaterialStateProperty.all<Color>(Color(0xFF493CF1))),
               onPressed: () {
-                Navigator.of(context).pushNamed(QRScreen.routename);
+                Navigator.of(context).pushNamed(SignInPage.routename);
               },
               child: Container(
                 alignment: Alignment.center,
