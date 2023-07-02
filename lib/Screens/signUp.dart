@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'Home_Screen.dart';
+import 'Light_Screen.dart';
 import '../Screens/signin.dart';
 import '../constants/Colors.dart';
 
@@ -29,7 +29,7 @@ class _SignUpPageState extends State<SignUpPage> {
       // User signed up successfully
       print("User signed up with email: $email");
       Navigator.push(
-          context, MaterialPageRoute(builder: (context) => HomeScreen()));
+          context, MaterialPageRoute(builder: (context) => LightScreen()));
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
         print('The password provided is too weak.');

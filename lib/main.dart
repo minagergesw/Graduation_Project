@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:home_automation_project/Screens/Home_Screen.dart';
 import 'package:home_automation_project/Screens/QR_Scan_Screen.dart';
 import 'package:home_automation_project/Screens/QR_Screen.dart';
 import 'package:home_automation_project/Screens/Welcome_Screen.dart';
@@ -12,7 +13,7 @@ import 'package:home_automation_project/Screens/signin.dart';
 import './Screens/Login_Screen.dart';
 import './control/cubit/phone_auth.dart';
 
-import 'Screens/Home_Screen.dart';
+import 'Screens/Light_Screen.dart';
 
 Future<void> main() async {
   HttpOverrides.global = MyHttpOverrides();
@@ -53,6 +54,7 @@ class MyApp extends StatelessWidget {
               home: snapshot.hasData ? HomeScreen() : WelcomeScreen(),
               routes: {
                 LoginScreen.routename: (ctx) => LoginScreen(),
+                LightScreen.routename: (ctx) => LightScreen(),
                 HomeScreen.routename: (ctx) => HomeScreen(),
                 QRScreen.routename: (ctx) => QRScreen(),
                 QRScanScreen.routename: (ctx) => QRScanScreen(),

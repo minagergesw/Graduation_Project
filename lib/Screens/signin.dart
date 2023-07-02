@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:home_automation_project/Screens/QR_Screen.dart';
 import 'package:home_automation_project/Screens/signUp.dart';
-import 'Home_Screen.dart';
+import 'Light_Screen.dart';
 import '../Screens/resetPassword.dart';
 
 class SignInPage extends StatefulWidget {
@@ -31,7 +31,7 @@ class _SignInPageState extends State<SignInPage> {
       // User signed in successfully
       print("User signed in with email: $email");
       Navigator.push(
-          context, MaterialPageRoute(builder: (context) => HomeScreen()));
+          context, MaterialPageRoute(builder: (context) => LightScreen()));
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
         print('No user found for that email.');
