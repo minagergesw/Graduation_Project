@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:home_automation_project/Light/Light_Screen.dart';
 import 'package:home_automation_project/Screens/QR_Screen.dart';
 import 'package:home_automation_project/Screens/signUp.dart';
 import 'Light_Screen.dart';

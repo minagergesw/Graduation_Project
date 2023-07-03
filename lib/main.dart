@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:home_automation_project/Light/Light_Screen.dart';
 import 'package:home_automation_project/Screens/Home_Screen.dart';
 import 'package:home_automation_project/Screens/QR_Scan_Screen.dart';
 import 'package:home_automation_project/Screens/QR_Screen.dart';
@@ -54,12 +55,13 @@ class MyApp extends StatelessWidget {
               home: snapshot.hasData ? HomeScreen() : WelcomeScreen(),
               routes: {
                 LoginScreen.routename: (ctx) => LoginScreen(),
-                LightScreen.routename: (ctx) => LightScreen(),
+                // LightScreen.routename: (ctx) => LightScreen(),
                 HomeScreen.routename: (ctx) => HomeScreen(),
                 QRScreen.routename: (ctx) => QRScreen(),
                 QRScanScreen.routename: (ctx) => QRScanScreen(),
                 SignInPage.routename: (ctx) => SignInPage(),
                 SignUpPage.routename: (ctx) => SignUpPage(),
+                LightScreen.routename: (ctx) => LightScreen(),
               },
             );
           },

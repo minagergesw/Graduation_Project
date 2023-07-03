@@ -7,15 +7,15 @@ import 'package:home_automation_project/Screens/Profile_Screen.dart';
 import 'package:http/http.dart' as http;
 import 'package:light_bottom_navigation_bar/light_bottom_navigation_bar.dart';
 
-class LightScreen extends StatefulWidget {
-  const LightScreen({super.key});
+class LightScreen2 extends StatefulWidget {
+  const LightScreen2({super.key});
   static const routename = '/Light';
 
   @override
-  State<LightScreen> createState() => _LightScreenState();
+  State<LightScreen2> createState() => _LightScreen2State();
 }
 
-class _LightScreenState extends State<LightScreen> {
+class _LightScreen2State extends State<LightScreen2> {
   bool value = false;
   bool value2 = false;
   var url = Uri.parse(

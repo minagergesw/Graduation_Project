@@ -280,14 +280,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  freezed_annotation:
-    dependency: transitive
-    description:
-      name: freezed_annotation
-      sha256: aeac15850ef1b38ee368d4c53ba9a847e900bb2c53a4db3f6881cbb3cb684338
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.2.0"
   google_fonts:
     dependency: "direct main"
     description:
@@ -336,14 +328,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.6.7"
-  json_annotation:
-    dependency: transitive
-    description:
-      name: json_annotation
-      sha256: b10a7b2ff83d83c777edba3c6a0f97045ddadd56c944e1a23a3fdf43a1bf4467
-      url: "https://pub.dev"
-    source: hosted
-    version: "4.8.1"
   light_bottom_navigation_bar:
     dependency: "direct main"
     description:
@@ -605,14 +589,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.4"
-  weather_animation:
-    dependency: "direct main"
-    description:
-      name: weather_animation
-      sha256: "37cfdcdd919b11b1ea7eefa08a8480d06b85eb4f5470380589150e8e457f2497"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.0.2"
   win32:
     dependency: transitive
     description:
