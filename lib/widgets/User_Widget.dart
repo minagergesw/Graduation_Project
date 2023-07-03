@@ -18,24 +18,24 @@ class UserWidget extends StatelessWidget {
                   children: [
                    
                     Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          ' ! ' + 'مرحبا مينا',
-                          style: GoogleFonts.almarai(fontSize: 28),
+                           'Hello Mina'+" !",
+                          style: GoogleFonts.cairo(fontSize: 28,height: 1),
                         ),
                         Container(
-                          alignment: Alignment.centerRight,
+                          alignment: Alignment.centerLeft,
                           padding: EdgeInsets.all(5),
                           child: Text(
-                            'التاريخ : ' +
+                            'Date : ' +
                                 DateTime.now().day.toString() +
                                 '/' +
                                 DateTime.now().month.toString() +
                                 '/' +
                                 DateTime.now().year.toString(),
-                            style: GoogleFonts.almarai(fontSize: 15),
-                            textDirection: TextDirection.rtl,
+                            style: GoogleFonts.cairo(fontSize: 15,height: 1),
+                            textDirection: TextDirection.ltr
                           ),
                         ),
                       ],
