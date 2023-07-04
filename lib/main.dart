@@ -5,9 +5,12 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:home_automation_project/Light/Light_Screen.dart';
+import 'package:home_automation_project/Screens/AC_Screen.dart';
+import 'package:home_automation_project/Screens/Fan_Screen.dart';
 import 'package:home_automation_project/Screens/Home_Screen.dart';
 import 'package:home_automation_project/Screens/QR_Scan_Screen.dart';
 import 'package:home_automation_project/Screens/QR_Screen.dart';
+import 'package:home_automation_project/Screens/Security_Screen.dart';
 import 'package:home_automation_project/Screens/Welcome_Screen.dart';
 import 'package:home_automation_project/Screens/signUp.dart';
 import 'package:home_automation_project/Screens/signin.dart';
@@ -62,6 +65,9 @@ class MyApp extends StatelessWidget {
                 SignInPage.routename: (ctx) => SignInPage(),
                 SignUpPage.routename: (ctx) => SignUpPage(),
                 LightScreen.routename: (ctx) => LightScreen(),
+                FanScreen.routename: (ctx) => FanScreen(),
+                ACScreen.routename: (ctx) => ACScreen(),
+                SecurityScreen.routename: (ctx) => SecurityScreen(),
               },
             );
           },
