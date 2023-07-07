@@ -146,24 +146,19 @@ class RoleAuthCubit extends Cubit<RoleAuthStates> {
   }
 
   void checkisAdmin() async {
-    try {
+
       databaseReference.child('admin').onValue.listen((event) {
-        if (FirebaseAuth.instance.currentUser!.email == event.snapshot.value) {
+      Map<dynamic,dynamic> data =   event.snapshot.value as Map;
+      // Map<dynamic,dynamic> data2= data.keys.toList().first as Map;
+      
+        if (FirebaseAuth.instance.currentUser!.email == data.values.toList().first['email']) {
           isvisiblegas = true;
         } else {
           isvisiblegas = false;
         }
       });
 
-      if (state is SignInAsAdmin) {
-        emit(SignInAsAdminSuccess());
-        print("welcome back admin");
-      } else {
-        emit(SignInAsUserSuccess());
-        print("welcome back user");
-      }
-    } catch (error) {
-      emit(SignInError(message: error.toString()));
-    }
+   
+  
   }
 }
