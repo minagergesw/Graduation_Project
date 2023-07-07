@@ -18,6 +18,7 @@ import './Screens/Login_Screen.dart';
 import './control/cubit/phone_auth.dart';
 
 import 'Screens/Light_Screen.dart';
+import 'control/cubit/authCubit.dart';
 
 Future<void> main() async {
   HttpOverrides.global = MyHttpOverrides();
@@ -32,8 +33,16 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-        create: (BuildContext context) => PhoneAuthCubit(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<PhoneAuthCubit>(
+          create: (BuildContext context) => PhoneAuthCubit(),
+        ),
+        BlocProvider<RoleAuthCubit>(
+          create: (BuildContext context) => RoleAuthCubit()..checkAdmin(),
+        )
+      ],
+       
         child: StreamBuilder(
           stream: FirebaseAuth.instance.authStateChanges(),
           builder: (context, snapshot) {

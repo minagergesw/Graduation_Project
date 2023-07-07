@@ -1,9 +1,15 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:home_automation_project/Light/Light_Screen.dart';
+import 'package:home_automation_project/Screens/Home_Screen.dart';
 import 'package:home_automation_project/Screens/QR_Screen.dart';
 import 'package:home_automation_project/Screens/signUp.dart';
+import '../control/cubit/authCubit.dart';
+import '../control/status/authState.dart';
+import '../widgets/home.dart';
+import '../widgets/settings.dart';
 import 'Light_Screen.dart';
 import '../Screens/resetPassword.dart';
 
@@ -19,37 +25,69 @@ class _SignInPageState extends State<SignInPage> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
 
-  Future<void> _signIn() async {
-    String email = _emailController.text.trim();
-    String password = _passwordController.text.trim();
+  // Future<void> _signIn() async {
+  //   String email = _emailController.text.trim();
+  //   String password = _passwordController.text.trim();
 
-    try {
-      UserCredential userCredential =
-          await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: email,
-        password: password,
-      );
-      // User signed in successfully
-      print("User signed in with email: $email");
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => LightScreen()));
-    } on FirebaseAuthException catch (e) {
-      if (e.code == 'user-not-found') {
-        print('No user found for that email.');
-      } else if (e.code == 'wrong-password') {
-        print('Wrong password provided for that user.');
-      } else {
-        print(e.message);
-      }
-    } catch (e) {
-      print(e);
-    }
-  }
+  //   try {
+  //     UserCredential userCredential =
+  //         await FirebaseAuth.instance.signInWithEmailAndPassword(
+  //       email: email,
+  //       password: password,
+  //     );
+  //     // User signed in successfully
+  //     print("User signed in with email: $email");
+  //     Navigator.push(
+  //         context, MaterialPageRoute(builder: (context) => LightScreen()));
+  //   } on FirebaseAuthException catch (e) {
+  //     if (e.code == 'user-not-found') {
+  //       print('No user found for that email.');
+  //     } else if (e.code == 'wrong-password') {
+  //       print('Wrong password provided for that user.');
+  //     } else {
+  //       print(e.message);
+  //     }
+  //   } catch (e) {
+  //     print(e);
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
+        body: BlocConsumer<RoleAuthCubit, RoleAuthStates>(
+            listener: (context, state) {
+      if (state is SignInAsAdminSuccess) {
+        Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => HomeScreen()));
+
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text('Welcome back, admin!'),
+          duration: Duration(seconds: 10),
+          backgroundColor: Color.fromARGB(255, 88, 7, 169),
+          behavior: SnackBarBehavior.floating,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+        ));
+      }
+
+      if (state is SignInAsUserSuccess) {
+        Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => HomeScreen()));
+
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text('Welcome back, ${FirebaseAuth.instance.currentUser!.displayName}!'),
+          duration: Duration(seconds: 5),
+          backgroundColor: Color.fromARGB(255, 98, 33, 209),
+          behavior: SnackBarBehavior.floating,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+        ));
+      }
+    }, builder: (context, state) {
+      return SafeArea(
         child: SingleChildScrollView(
           child: Container(
             padding: EdgeInsets.all(16.0),
@@ -123,7 +161,9 @@ class _SignInPageState extends State<SignInPage> {
                       width: 200,
                       child: ElevatedButton(
                         onPressed: () {
-                          _signIn();
+                          BlocProvider.of<RoleAuthCubit>(context).UserSignIn(
+                              email: _emailController.text.trim(),
+                              password: _passwordController.text.trim());
                         },
                         style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.all<Color>(
@@ -189,7 +229,7 @@ class _SignInPageState extends State<SignInPage> {
             ),
           ),
         ),
-      ),
-    );
+      );
+    }));
   }
 }
