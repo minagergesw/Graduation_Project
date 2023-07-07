@@ -413,7 +413,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceBetween,
                                           children: [
-                                            Material(
+                                          BlocProvider.of<RoleAuthCubit>(context)
+                                              .isvisiblegas
+                                          ?   Material(
                                               borderRadius:
                                                   BorderRadius.circular(20),
                                               child: InkWell(
@@ -463,7 +465,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                               ),
                                               color: Color.fromARGB(
                                                   255, 150, 33, 128),
-                                            ),
+                                            ):SizedBox(),
                                             Material(
                                               borderRadius:
                                                   BorderRadius.circular(20),

@@ -62,7 +62,7 @@ class _SignInPageState extends State<SignInPage> {
             context, MaterialPageRoute(builder: (context) => HomeScreen()));
 
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text('Welcome back, admin!'),
+          content: Text('Welcome back, Admin!'),
           duration: Duration(seconds: 10),
           backgroundColor: Color.fromARGB(255, 88, 7, 169),
           behavior: SnackBarBehavior.floating,

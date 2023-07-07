@@ -35,9 +35,9 @@ class _SignUpPageState extends State<SignUpPage> {
                   Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => Home2Screen()));
+                          builder: (context) => HomeScreen()));
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                    content: Text('Welcome to your home '),
+                    content: Text('Welcome to your home !'),
                     duration: Duration(seconds: 5),
                     backgroundColor: Color.fromARGB(255, 88, 7, 169),
                     behavior: SnackBarBehavior.floating,

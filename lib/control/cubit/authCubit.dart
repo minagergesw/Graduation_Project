@@ -34,7 +34,8 @@ class RoleAuthCubit extends Cubit<RoleAuthStates> {
               .set({
             'email': credential.user!.email,
           });
-
+  final user = FirebaseAuth.instance.currentUser;
+    await user?.updateDisplayName(namee);
           void submitForm() {
             final String name = namee;
             final userId = FirebaseAuth.instance.currentUser!.uid;
@@ -63,6 +64,8 @@ class RoleAuthCubit extends Cubit<RoleAuthStates> {
         email: email,
         password: password,
       );
+      final user = FirebaseAuth.instance.currentUser;
+     await user?.updateDisplayName(namee);
       // Add the user to the "users" node in the database
 
       // final name = namee;
@@ -100,28 +103,28 @@ class RoleAuthCubit extends Cubit<RoleAuthStates> {
 
 // // 1- first method for checking if user is admin or normal user
 
-//   Future<void> checkSignedEmail({required String email}) async {
-//     final DatabaseEvent adminsSnapshot = await databaseReference
-//         .child('admin')
-//         .orderByChild('email')
-//         .equalTo(email)
-//         .once();
-//     final DatabaseEvent usersSnapshot = await databaseReference
-//         .child('users')
-//         .orderByChild('email')
-//         .equalTo(email)
-//         .once();
-//     if (adminsSnapshot.snapshot.value != null) {
-//       emit(SignInAsAdmin());
-//       print(" welcome admin");
-//     } else if (usersSnapshot.snapshot.value != null) {
-//       emit(SignInAsUser());
-//       print("welcome user ");
-//     } else {
-//       emit(EmailNotValid());
-//       print(" Sorry, there is an error");
-//     }
-  // }
+  Future<void> checkSignedEmail({required String email}) async {
+    final DatabaseEvent adminsSnapshot = await databaseReference
+        .child('admin')
+        .orderByChild('email')
+        .equalTo(email)
+        .once();
+    final DatabaseEvent usersSnapshot = await databaseReference
+        .child('users')
+        .orderByChild('email')
+        .equalTo(email)
+        .once();
+    if (adminsSnapshot.snapshot.value != null) {
+      emit(SignInAsAdmin());
+      print(" welcome admin");
+    } else if (usersSnapshot.snapshot.value != null) {
+      emit(SignInAsUser());
+      print("welcome user ");
+    } else {
+      emit(EmailNotValid());
+      print(" Sorry, there is an error");
+    }
+  }
 
 // 2- second method for :  after detecting who is admin or user wil sign in as it's role and navigate to it's destination
 
@@ -132,7 +135,26 @@ class RoleAuthCubit extends Cubit<RoleAuthStates> {
         email: email,
         password: password,
       );
-
+  final DatabaseEvent adminsSnapshot = await databaseReference
+        .child('admin')
+        .orderByChild('email')
+        .equalTo(email)
+        .once();
+    final DatabaseEvent usersSnapshot = await databaseReference
+        .child('users')
+        .orderByChild('email')
+        .equalTo(email)
+        .once();
+    if (adminsSnapshot.snapshot.value != null) {
+      emit(SignInAsAdmin());
+      print(" welcome admin");
+    } else if (usersSnapshot.snapshot.value != null) {
+      emit(SignInAsUser());
+      print("welcome user ");
+    } else {
+      emit(EmailNotValid());
+      print(" Sorry, there is an error");
+    }
       if (state is SignInAsAdmin) {
         emit(SignInAsAdminSuccess());
         print("welcome back admin");
