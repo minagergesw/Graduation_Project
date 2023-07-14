@@ -67,7 +67,7 @@ Future<void> _controlACcheck() async {
           elevation: 0,
           centerTitle: true,
           title: Text(
-            'Control Fan',
+            'Control Air Conditioning',
             style: GoogleFonts.cairo(height: 1, fontSize: 24),
           ),
         ),

@@ -127,8 +127,8 @@ class _GasScreenState extends State<GasScreen> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   containerControlGas(
-                                    ImagePath: "images/valve.png",
-                                    Name: "Control gas",
+                                    ImagePath: "images/gasfan.png",
+                                    Name: "Control Gas Fan",
                                     boolFan: gasfan,
                                     onchanged: (value) {
                                       setState(() {
