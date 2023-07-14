@@ -8,6 +8,7 @@ import 'package:home_automation_project/Light/Light_Screen.dart';
 import 'package:home_automation_project/Screens/AC_Screen.dart';
 import 'package:home_automation_project/Screens/Fan_Screen.dart';
 import 'package:home_automation_project/Screens/Home_Screen.dart';
+import 'package:home_automation_project/Screens/Profile_Screen.dart';
 import 'package:home_automation_project/Screens/QR_Scan_Screen.dart';
 import 'package:home_automation_project/Screens/QR_Screen.dart';
 import 'package:home_automation_project/Screens/Security_Screen.dart';
@@ -17,6 +18,7 @@ import 'package:home_automation_project/Screens/signin.dart';
 import './Screens/Login_Screen.dart';
 import './control/cubit/phone_auth.dart';
 
+import 'Screens/Gas_Screen.dart';
 import 'Screens/Light_Screen.dart';
 import 'control/cubit/authCubit.dart';
 
@@ -77,6 +79,8 @@ class MyApp extends StatelessWidget {
                 FanScreen.routename: (ctx) => FanScreen(),
                 ACScreen.routename: (ctx) => ACScreen(),
                 SecurityScreen.routename: (ctx) => SecurityScreen(),
+                GasScreen.routename:(ctx)=>GasScreen(),
+                ProfileScreen.routename:(ctx)=>ProfileScreen(),
               },
             );
           },

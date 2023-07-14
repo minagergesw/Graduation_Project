@@ -78,9 +78,9 @@ class _SignUpPageState extends State<SignUpPage> {
                                 height: 70,
                               ),
                               Text(
-                                'المنزل الذكي',
-                                style: GoogleFonts.tajawal(
-                                    fontSize: 30,
+                                'Smart Home',
+                                style: GoogleFonts.cairo(
+                                    fontSize: 30,height: 1,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.grey[800]),
                               ),
@@ -89,12 +89,12 @@ class _SignUpPageState extends State<SignUpPage> {
                               ),
                               TextFormField(
                                 textAlignVertical: TextAlignVertical.center,
-                                textAlign: TextAlign.end,
+                                textAlign: TextAlign.start,
                                 controller: _emailController,
                                 decoration: InputDecoration(
-                                  hintText: "الايميل",
-                                  hintStyle: GoogleFonts.tajawal(
-                                    fontSize: 13,
+                                  hintText: "Email",
+                                  hintStyle: GoogleFonts.cairo(
+                                    fontSize: 13,height: 1
                                   ),
                                 ),
                                 keyboardType: TextInputType.emailAddress,
@@ -115,10 +115,10 @@ class _SignUpPageState extends State<SignUpPage> {
                               ),
                               SizedBox(height: 16.0),
                               TextFormField(
-                                textAlign: TextAlign.end,
+                                textAlign: TextAlign.start,
                                 controller: _passwordController,
                                 decoration: InputDecoration(
-                                  hintText: "كلمة السر",
+                                  hintText: "Password",
                                   hintStyle: GoogleFonts.tajawal(
                                     fontSize: 12,
                                   ),
@@ -136,10 +136,10 @@ class _SignUpPageState extends State<SignUpPage> {
                               ),
                               SizedBox(height: 16.0),
                               TextFormField(
-                                textAlign: TextAlign.end,
+                                textAlign: TextAlign.start,
                                 controller: _nameController,
                                 decoration: InputDecoration(
-                                  hintText: " الاسم",
+                                  hintText: " Name",
                                   hintStyle: GoogleFonts.tajawal(
                                     fontSize: 12,
                                   ),
@@ -186,8 +186,8 @@ class _SignUpPageState extends State<SignUpPage> {
                                       ),
                                       child: Text(
                                         " Register as Admin",
-                                        style: GoogleFonts.abel(
-                                            fontSize: 20,
+                                        style: GoogleFonts.cairo(
+                                            fontSize: 20,height: 1.2,
                                             fontWeight: FontWeight.bold,
                                             color: Colors.white),
                                       ),
@@ -225,8 +225,8 @@ class _SignUpPageState extends State<SignUpPage> {
                                     ),
                                     child: Text(
                                       " Register as user ",
-                                      style: GoogleFonts.abel(
-                                          fontSize: 20,
+                                      style: GoogleFonts.cairo(
+                                          fontSize: 20,height: 1.2,
                                           fontWeight: FontWeight.bold,
                                           color: Colors.white),
                                     ),
@@ -238,7 +238,7 @@ class _SignUpPageState extends State<SignUpPage> {
                               ),
                               Center(
                                 child: Container(
-                                  height: 80,
+                                  height: 60,
                                   width: 200,
                                   child: TextButton(
                                     onPressed: () {
@@ -259,9 +259,9 @@ class _SignUpPageState extends State<SignUpPage> {
                                                   BorderRadius.circular(5))),
                                     ),
                                     child: Text(
-                                      "لديك حساب بالفعل ؟",
-                                      style: GoogleFonts.almarai(
-                                          fontSize: 20,
+                                      "Do you have an account ?",
+                                      style: GoogleFonts.cairo(
+                                          fontSize: 16,height: 1.2,
                                           fontWeight: FontWeight.bold,
                                           color: Color(0xFF493CF1)),
                                     ),

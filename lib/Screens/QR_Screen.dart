@@ -25,7 +25,7 @@ class _QRScreenState extends State<QRScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'مسح كود الجهاز',
+                  'QR Scan',
                   style: GoogleFonts.almarai(
                       fontSize: 28, fontWeight: FontWeight.bold),
                 ),
@@ -33,8 +33,8 @@ class _QRScreenState extends State<QRScreen> {
                   height: 50,
                 ),
                 Text(
-                  'لبدء الاستخدام يرجى الضغط على كلمة مسح وتوجية الهاتف للكود الموجود على الجهاز الذى يشبة الصورة التالية',
-                  style: GoogleFonts.almarai(fontSize: 16),
+                  'To start using the application, please click on the word Scan and use the phone\'s camera to scan the code on the device that looks like the following image',
+                  style: GoogleFonts.cairo(fontSize: 18,height: 1.5),
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(
@@ -59,8 +59,8 @@ class _QRScreenState extends State<QRScreen> {
                             .pushReplacementNamed(QRScanScreen.routename);
                       },
                       child: Text(
-                        'مسح الكود',
-                        style: GoogleFonts.almarai(fontSize: 16),
+                        'Scan QR Code',
+                        style: GoogleFonts.cairo(fontSize: 18,height: 1.4,fontWeight: FontWeight.bold),
                       )),
                 )
               ]),

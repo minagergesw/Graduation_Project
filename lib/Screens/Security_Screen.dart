@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:home_automation_project/Screens/gride_view.dart';
 import 'package:http/http.dart' as http;
 
 class SecurityScreen extends StatefulWidget {
@@ -17,9 +18,9 @@ class _SecurityScreenState extends State<SecurityScreen> {
   var url = Uri.parse(
       'https://homeautomation-9d333-default-rtdb.firebaseio.com/board1/outputs/digital.json');
   var url2 = Uri.parse(
-      'https://homeautomation-9d333-default-rtdb.firebaseio.com/board1/outputs/digital/32.json');
+      'https://homeautomation-9d333-default-rtdb.firebaseio.com/board1/outputs/digital/18.json');
   Future<void> _toggledoorlock() async {
-    await http.patch(url, body: json.encode({'32': security ? 1 : 0}));
+    await http.patch(url, body: json.encode({'18': security ? 1 : 0}));
   }
 
    bool _isLoading = false;
@@ -83,18 +84,19 @@ class _SecurityScreenState extends State<SecurityScreen> {
                                 width: 250,
                                 child: Image.asset('images/door-lock.png')),
                           ),
-                          Transform.scale(
-                              scale: 2,
-                              child: Switch(
-                                thumbIcon: thumbIcon,
-                                onChanged: (value) {
-                                  setState(() {
-                                    security = value;
-                                    _toggledoorlock();
-                                  });
-                                },
-                                value: security,
-                              )),
+                         containerControlGas(
+                        // ImagePath: "images/valve.png",
+                        Name: "Toggle Lock",
+                        boolFan: security,
+                        onchanged: (value) {
+                          setState(() {
+                            security = value!;
+                          });
+                          _toggledoorlock();
+                        },
+                        width: 200,
+                        value: security,
+                      ),
                         ],
                       ),
                     ),

@@ -1,8 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class UserWidget extends StatelessWidget {
-  const UserWidget({
+ final String? user;
+  const UserWidget(Set<User?> set, {
+    this.user,
     super.key,
   });
 
@@ -21,7 +24,7 @@ class UserWidget extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                           'Hello Mina'+" !",
+                           'Hello ${user}'+" !",
                           style: GoogleFonts.cairo(fontSize: 28,height: 1),
                         ),
                         Container(

@@ -15,9 +15,9 @@ class WelcomeScreen extends StatefulWidget {
 class _WelcomeScreenState extends State<WelcomeScreen> {
   final controller = PageController(viewportFraction: 1, keepPage: true);
   final TitlesList = [
-    'تحكم فى منزلك بسهولة من اى مكان',
-    'تجربة منزل ذكي حقيقية مع تقنية متقدمة تسهل حياتك اليومية',
-    'تحكم في الإضاءة ودرجة الحرارة وأجهزة الأمان في منزلك بلمسة واحدة'
+    'Control your home easily from anywhere',
+    'A true smart home experience with advanced technology that facilitates your daily life',
+    'Control the lighting, temperature and security devices in your home with a single touch'
   ];
 
   @override
@@ -46,10 +46,10 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             SizedBox(
               height: 40,
               child: Text(
-                'المنزل الذكي',
-                style: GoogleFonts.almarai(
+                'Smart Home',
+                style: GoogleFonts.cairo(
                     color: Colors.black54,
-                    fontSize: 36,
+                    fontSize: 36,height: 1,
                     fontWeight: FontWeight.bold),
               ),
             ),
@@ -68,12 +68,14 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       SizedBox(
                         height: 20,
                       ),
-                      Container(
+                      Container(padding: EdgeInsets.all(3),
                         child: Center(
                           child: Text(
                             TitlesList[index],
-                            style: GoogleFonts.almarai(
-                                color: Colors.black54, fontSize: 28),
+                            style: GoogleFonts.cairo(
+                                color: Colors.black54,
+                                height: 1,
+                                 fontSize: 27),
                             textAlign: TextAlign.center,
                           ),
                         ),
@@ -106,8 +108,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 height: 60,
                 width: 100,
                 child: Text(
-                  'ابدأ',
-                  style: GoogleFonts.almarai(fontSize: 28),
+                  'Start',
+                  style: GoogleFonts.cairo(fontSize: 28,height: 1.4),
                 ),
               ),
             ),

@@ -77,7 +77,8 @@ class _SignInPageState extends State<SignInPage> {
             context, MaterialPageRoute(builder: (context) => HomeScreen()));
 
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text('Welcome back, ${FirebaseAuth.instance.currentUser!.displayName}!'),
+          content: Text(
+              'Welcome back, ${FirebaseAuth.instance.currentUser!.displayName}!'),
           duration: Duration(seconds: 5),
           backgroundColor: Color.fromARGB(255, 98, 33, 209),
           behavior: SnackBarBehavior.floating,
@@ -101,9 +102,10 @@ class _SignInPageState extends State<SignInPage> {
                     height: 150,
                   ),
                   Text(
-                    'المنزل الذكي',
-                    style: GoogleFonts.tajawal(
+                    'Smart Home',
+                    style: GoogleFonts.cairo(
                         fontSize: 30,
+                        height: 1,
                         fontWeight: FontWeight.bold,
                         color: Colors.grey[800]),
                   ),
@@ -112,11 +114,12 @@ class _SignInPageState extends State<SignInPage> {
                   ),
                   TextFormField(
                     textAlignVertical: TextAlignVertical.center,
-                    textAlign: TextAlign.end,
+                    textAlign: TextAlign.start,
                     controller: _emailController,
                     decoration: InputDecoration(
-                      hintText: "الايميل",
-                      hintStyle: GoogleFonts.tajawal(
+                      hintText: "Email",
+                      hintStyle: GoogleFonts.cairo(
+                        height: 1,
                         fontSize: 13,
                       ),
                     ),
@@ -128,23 +131,21 @@ class _SignInPageState extends State<SignInPage> {
                     ),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return "من فضلك اكتب الايميل بشكل صحيح";
+                        return "please enter a valid email";
                       }
                       if (!value.contains('@')) {
-                        return "من فضلك اكتب الايميل بشكل صحيح";
+                        return "please enter a valid email";
                       }
                       return null;
                     },
                   ),
                   SizedBox(height: 16.0),
                   TextFormField(
-                    textAlign: TextAlign.end,
+                    textAlign: TextAlign.start,
                     controller: _passwordController,
                     decoration: InputDecoration(
-                      hintText: "كلمة السر",
-                      hintStyle: GoogleFonts.tajawal(
-                        fontSize: 12,
-                      ),
+                      hintText: "Password",
+                      hintStyle: GoogleFonts.cairo(fontSize: 12, height: 1),
                     ),
                     obscureText: true,
                     validator: (value) {
@@ -173,9 +174,10 @@ class _SignInPageState extends State<SignInPage> {
                                   borderRadius: BorderRadius.circular(5))),
                         ),
                         child: Text(
-                          "تسجيل الدخول",
-                          style: GoogleFonts.almarai(
+                          "Login",
+                          style: GoogleFonts.cairo(
                               fontSize: 20,
+                              height: 1.3,
                               fontWeight: FontWeight.bold,
                               color: Colors.white),
                         ),
@@ -203,9 +205,9 @@ class _SignInPageState extends State<SignInPage> {
                                   borderRadius: BorderRadius.circular(5))),
                         ),
                         child: Text(
-                          "انشاء حساب جديد",
-                          style: GoogleFonts.almarai(
-                              fontSize: 20,
+                          "Create New Account",
+                          style: GoogleFonts.cairo(
+                              fontSize: 20,height: 1.3,
                               fontWeight: FontWeight.bold,
                               color: Color(0xFF493CF1)),
                         ),
