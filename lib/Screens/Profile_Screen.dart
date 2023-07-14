@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:home_automation_project/Screens/signin.dart';
+import 'package:home_automation_project/widgets/settings.dart';
 import 'package:home_automation_project/widgets/text_form.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
@@ -36,10 +37,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
         // Update the user object and text controllers with the new values
         _user = FirebaseAuth.instance.currentUser;
         _emailController.text = _user?.email ?? "";
-        NotificationService().showNotification(
-            body: " Your Email Updated to ${_user!.email}",
-            title: " Profile notification");
+        
+      
       });
+       await databaseReference
+              .child('admin')
+              .child(_user!.uid)
+              .set({
+            'email': _user!.email,
+          });
       print("Email updated successfully");
     } catch (e) {
       print("Error updating profile: $e");
@@ -53,9 +59,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       setState(() {
         _user = FirebaseAuth.instance.currentUser;
         _nameController.text = _user?.displayName ?? "";
-        NotificationService().showNotification(
-            body: " Your Name Updated to ${_user!.displayName}",
-            title: " Profile notification");
+    
       });
       print("Name updated successfully");
     } catch (e) {

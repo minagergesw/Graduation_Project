@@ -15,6 +15,7 @@ import 'package:home_automation_project/Screens/Security_Screen.dart';
 import 'package:home_automation_project/Screens/Welcome_Screen.dart';
 import 'package:home_automation_project/Screens/signUp.dart';
 import 'package:home_automation_project/Screens/signin.dart';
+import 'package:home_automation_project/constants/local_notification.dart';
 import './Screens/Login_Screen.dart';
 import './control/cubit/phone_auth.dart';
 
@@ -36,15 +37,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [
-        BlocProvider<PhoneAuthCubit>(
-          create: (BuildContext context) => PhoneAuthCubit(),
-        ),
-        BlocProvider<RoleAuthCubit>(
-          create: (BuildContext context) => RoleAuthCubit()..checkAdmin(),
-        )
-      ],
-       
+        providers: [
+          BlocProvider<PhoneAuthCubit>(
+            create: (BuildContext context) => PhoneAuthCubit(),
+          ),
+          BlocProvider<RoleAuthCubit>(
+            create: (BuildContext context) => RoleAuthCubit()..checkAdmin(),
+          )
+        ],
         child: StreamBuilder(
           stream: FirebaseAuth.instance.authStateChanges(),
           builder: (context, snapshot) {
@@ -79,8 +79,8 @@ class MyApp extends StatelessWidget {
                 FanScreen.routename: (ctx) => FanScreen(),
                 ACScreen.routename: (ctx) => ACScreen(),
                 SecurityScreen.routename: (ctx) => SecurityScreen(),
-                GasScreen.routename:(ctx)=>GasScreen(),
-                ProfileScreen.routename:(ctx)=>ProfileScreen(),
+                GasScreen.routename: (ctx) => GasScreen(),
+                ProfileScreen.routename: (ctx) => ProfileScreen(),
               },
             );
           },
